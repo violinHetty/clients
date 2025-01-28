@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.kla.clients.services.ClientService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/clients")
 @RequiredArgsConstructor
@@ -20,9 +22,23 @@ public class ClientsController {
     }
 
     @PostMapping("/addContact/{idClient}")
-    public ResponseEntity<String> addClient(@PathVariable Long idClient, @RequestBody Contact contact){
+    public ResponseEntity<String> addClient(@PathVariable Long idClient, @RequestBody Contact contact) {
         return service.addContact(idClient, contact);
     }
 
+    @GetMapping("{/id}")
+    public ResponseEntity<ClientDTO> getClientById(@PathVariable Long id) {
+        return service.getClientById(id);
+    }
+
+    @GetMapping("/getContacts/{idClient}")
+    public ResponseEntity<List<Contact>> getContacts(@PathVariable Long idClient) {
+        return service.getContactsByClientId(idClient);
+    }
+
+    @GetMapping("/getContactsByType/{idClient}")
+    public ResponseEntity<List<Contact>> getContactsByType(@PathVariable Long idClient, @RequestParam String type) {
+        return service.getContactsByType(idClient, type);
+    }
 
 }
