@@ -27,7 +27,7 @@ public class ClientsController {
         return service.addContact(idClient, contact);
     }
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ClientDTO> getClientById(@PathVariable Long id) throws ClientNotFoundException {
         return service.getClientById(id);
     }
@@ -41,5 +41,4 @@ public class ClientsController {
     public ResponseEntity<List<Contact>> getContactsByType(@PathVariable Long idClient, @RequestParam String type) throws ClientNotFoundException {
         return service.getContactsByType(idClient, type);
     }
-
 }
