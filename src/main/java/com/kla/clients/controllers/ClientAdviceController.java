@@ -1,5 +1,6 @@
-package com.kla.clients.exception;
+package com.kla.clients.controllers;
 
+import com.kla.clients.exception.ClientNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

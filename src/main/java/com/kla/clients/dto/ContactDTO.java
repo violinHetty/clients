@@ -7,7 +7,6 @@ import lombok.Data;
 @Data
 @Builder(toBuilder = true)
 public class ContactDTO {
-
     private Long id;
 
     private String value; // значение телефона или email-а
