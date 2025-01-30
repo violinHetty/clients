@@ -6,7 +6,6 @@ import com.kla.clients.entities.Client;
 public class ClientMapper {
     public static Client mapToEntity(ClientDTO clientDTO) {
         return Client.builder()
-                .id(clientDTO.getId())
                 .name(clientDTO.getName())
                 .build();
     }

@@ -26,7 +26,8 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public ResponseEntity<String> addClient(ClientDTO client) {
-            repository.save(mapToEntity(client));
+        Client entity = mapToEntity(client);
+        repository.save(entity);
             return new ResponseEntity<>("Клиент успешно добавлен", HttpStatus.OK);
     }
 
